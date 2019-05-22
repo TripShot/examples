@@ -1,0 +1,28 @@
+<html>
+<script>
+    var req = new XMLHttpRequest();
+    req.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var token = this.responseText;
+            document.getElementById("wrapper").innerHTML = "<iframe width=500 height=500 src='https://stage-a.tripshot.com/stopScreen?stopId=8339f129-51cf-49e2-b0d4-5a8dc3b060dc&token=" + encodeURIComponent(token) + "'></iframe>";
+        }
+    }
+    req.open("GET", "token", true);
+    req.send();
+
+</script>
+<body>
+
+<p>
+    Here is a header.
+</p>
+
+<div id="wrapper">
+</div>
+
+<p>
+    Here is a footer.
+</p>
+
+</body>
+</html>
